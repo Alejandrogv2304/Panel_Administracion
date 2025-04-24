@@ -1,35 +1,43 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { X, Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const NavbarLinks = () => {
   return(
-    <>
-    <NavLink to='/proveedores'> Proveedores</NavLink>
-    <NavLink to='/usuarios'> Usuarios</NavLink>
-    <NavLink to='/clientes'> Clientes</NavLink>
+    <>  
+  <NavLink className='border-b-2 border-b-transparent hover:border-b-blue-500 transition-all duration-200' to='/proveedores'> Proveedores</NavLink>
+  <NavLink className='border-b-2 border-b-transparent hover:border-b-blue-500 transition-all duration-200' to='/usuarios'> Usuarios</NavLink>
+  <NavLink className='border-b-2 border-b-transparent hover:border-b-blue-500 transition-all duration-200' to='/clientes'> Clientes</NavLink>
+  <NavLink className='border-b-2 border-b-transparent hover:border-b-red-500 transition-all duration-200' to='/logout'> Log Out</NavLink>
     </>
   )
 }
 
-const Nav = () => {
+const Navbar = () => {
     const [IsOpen, SetIsOpen] = useState(false);
 
     const toogleNavbar = () =>{
         SetIsOpen(!IsOpen)
     }
     return(
-     <Nav classname='w-1/3'>
-        <div className=' hidden md:flex justify-between'>
+        <>
+     <nav className='w-1/3 flex justify-end'>
+        <div className=' w-full hidden lg:flex justify-between'>
             <NavbarLinks/>
         </div>
-        <div className='md:hidden'>
+        <div className='lg:hidden'>
             <button onClick={toogleNavbar}>{IsOpen ? <X/> :<Menu/>}</button>
         </div>
-     </Nav>
+     </nav>
+     {IsOpen && (
+        <div className='flex basis-full flex-col items-center'>
+           <NavbarLinks/>
+        </div>
+     )}
+     </>
     )
   }
 
 
 
-export default Nav;
+export default Navbar;

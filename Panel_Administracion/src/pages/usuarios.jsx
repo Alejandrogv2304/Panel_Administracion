@@ -1,13 +1,13 @@
 import React from 'react'
-import Cliente from '../components/Cliente'
+import Usuario from '../components/Usuario'
 import Header from '../components/Header'
 
-export default function Clientes() {
+export default function Usuarios() {
   return (
     <>
     <Header />
     <main className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white p-8">
-      <Cliente />
+      <Usuario />
     </main>
   </>
   )
