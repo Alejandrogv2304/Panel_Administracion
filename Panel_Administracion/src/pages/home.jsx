@@ -1,10 +1,11 @@
 import React from 'react'
-import NavbarAdmin from '../components/Navbar'
+
+import Header from '../components/Header'
 
 export default function Home() {
   return (
     <>
-    <NavbarAdmin/>
+    <Header/>
     </>
   )
 }
